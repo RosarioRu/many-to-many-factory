@@ -1,5 +1,5 @@
 using System;
-//using System.Collections.Generic; (for lists)
+using System.Collections.Generic; 
 
 
 namespace Factory.Models
@@ -13,8 +13,9 @@ namespace Factory.Models
 
     public int MachineId { get; set; }
     public string Description {get; set; }
-    public int Value {get; set}
-    public virgual ICollection<EngineerMachine> JoinEntities { get; set; }
+    public int Value {get; set; }
+
+    public virtual ICollection<EngineerMachine> JoinEntities { get; set; }
 
 
   }
