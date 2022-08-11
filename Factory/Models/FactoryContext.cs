@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+
 
 namespace Factory.Models
 {
