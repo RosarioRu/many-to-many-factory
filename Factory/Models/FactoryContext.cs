@@ -9,5 +9,11 @@ namespace Facotry.Models
     public DbSet<EngineerMachine> EngineerMachines { get; set; }
 
     public FactoryContext(DbContextOptions options) : base(options) { }
+
+    //below OnConfiguing enables lazy-loading
+    protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
+    {
+      optionsBuilder.UseLazyLoadingProxies();
+    }
   }
 }
