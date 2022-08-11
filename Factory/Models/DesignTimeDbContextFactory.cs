@@ -22,8 +22,7 @@ namespace Factory.Models
 
       builder.UseMySql(configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(configuration["ConnectionStrings:DefaultConnection"]));
 
-      return new Factory
-      Context(builder.Options);
+      return new FactoryContext(builder.Options);
     }
   }
 }

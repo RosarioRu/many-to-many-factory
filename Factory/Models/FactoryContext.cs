@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Facotry.Models
+namespace Factory.Models
 {
   public class FactoryContext : DbContext
   {
@@ -10,7 +10,6 @@ namespace Facotry.Models
 
     public FactoryContext(DbContextOptions options) : base(options) { }
 
-    //below OnConfiguing enables lazy-loading
     protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
     {
       optionsBuilder.UseLazyLoadingProxies();
