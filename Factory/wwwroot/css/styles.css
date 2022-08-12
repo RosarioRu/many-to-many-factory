@@ -4,9 +4,10 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   background-color: rgb(193, 226, 237);
+  
 }
 
-.splash-welcome {
+.under-navbar {
   margin-bottom: 20px;
   padding-top:5%;
 }
@@ -34,7 +35,6 @@ body {
 
  .navbar ul {
   position: fixed;
-  
   top: 0;
   box-sizing: border-box;
   width: 100%;
