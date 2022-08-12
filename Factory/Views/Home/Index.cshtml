@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
   <meta charset="utf-8">
   <title>Dr. Sillystringz's Factory</title>
@@ -14,8 +16,11 @@
   <div class="splash-welcome">
     <h1>Welcome to Mr. Sillystringz's Factory</h1>
   </div>
+
+  <p>@Html.ActionLink("View Machines", "Index", "Machines")</p>
+  <p>@Html.ActionLink("See Engineers", "Index", "Engineers")</p>
   
-@await Html.PartialAsync("NavigationBar")
+@* @await Html.PartialAsync("NavigationBar") *@
 </body>
 
 </html>
