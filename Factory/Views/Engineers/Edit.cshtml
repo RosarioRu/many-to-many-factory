@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+
+<p class="under-navbar">Editing details for: @Model.EngineerName</p>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EngineerId)
+
+    @Html.LabelFor(model => model.EngineerName)
+    @Html.EditorFor(model => model.EngineerName)
+
+    
+    @Html.Label("Add another Machine for this engineer")
+    @Html.DropDownList("MachineId")
+
+    <input type="submit" value="Save" />
+}
+
+<br><p>@Html.ActionLink("Delete Engineer from System", "Delete", new {id=Model.EngineerId})</p>

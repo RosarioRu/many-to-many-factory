@@ -5,7 +5,7 @@
 @model Factory.Models.Engineer
 
 
-<p class="under-navbar">@Model.EngineerName's Details</p>
+<h4 class="under-navbar">@Model.EngineerName's Details</h4>
 
 <p>@Html.DisplayNameFor(model => model.EngineerId): @Html.DisplayFor(model => model.EngineerId)</p>
 
@@ -28,7 +28,8 @@ else
       }<br>*@
   </ul>
 }
-    
+
+<p>@Html.ActionLink($"Edit Engineer", "Edit", new {id=Model.EngineerId})</p>
   
 
  
