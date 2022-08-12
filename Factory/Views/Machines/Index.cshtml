@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 @{
   Layout = "_Layout";
 } 
@@ -18,6 +19,7 @@
     <thead>
       <tr>
         <th scope="col">Machine ID</th>
+        <th scope="col">Machine Name</th>
         <th scope="col">Description</th>
         <th scope="col">Value</th>
         <th score="col">Assigned Engineers</th>
@@ -27,12 +29,14 @@
     @foreach(Machine machine in Model)//this foreach loop uses html helper method to link to a specific machine's detail. Uses string interpolation - C# will evaluate an expression inside a string, so "{engineer.EngineerName}" becomes, for example, "Kelly." 
     {
       <tr>
-        <td>@Html.ActionLink($"{machine.MachineId}", "Details", new {id=machine.MachineId})</td> 
+        <td>@($"{machine.MachineId}")</td> 
+        <td>@Html.ActionLink($"{machine.MachineName}", "Details", new {id=machine.MachineId})</td> 
         <td>@($"{machine.Description}")</td>
         <td>@($"{machine.Value}")</td>
-        <td>engineers go here</td>
+        <td>engineers here</td>
       </tr>
     }
     </tbody>
-  </table>
+  </table><br><br>
+  <p>@Html.ActionLink("Add another machine", "Create")</p>
   }

@@ -7,6 +7,9 @@
 <h4 class="under-navbar">Add a Machine below</h4>
 @using (Html.BeginForm())
 {
+  @Html.LabelFor(model => model.MachineName) 
+  @Html.TextBoxFor(model => model.MachineName)
+
   @Html.LabelFor(model => model.Description) 
   @Html.TextBoxFor(model => model.Description)
 
@@ -15,7 +18,8 @@
 
 
   @Html.Label("Assign Engineer")
-  @Html.DropDownList("EngineerName")
+  @Html.DropDownList("EngineerId")
 
   <input type="submit" value="Add Machine" class="btn btn-light" />
 }
+ 
