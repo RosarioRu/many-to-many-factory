@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+} 
+
+@using Factory.Models;
+@model List<Factory.Models.Machine>;
+
+<h1 class="under-navbar">Machines</h1><br>
+
+  @if (@Model.Count == 0)
+  {
+    <h3>No Machines In The System Yet</h3><br>
+    <p>@Html.ActionLink("Add a machine", "Create")</p>
+  }
+  else 
+  {
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Machine ID</th>
+        <th scope="col">Description</th>
+        <th scope="col">Value</th>
+        <th score="col">Assigned Engineers</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach(Machine machine in Model)//this foreach loop uses html helper method to link to a specific machine's detail. Uses string interpolation - C# will evaluate an expression inside a string, so "{engineer.EngineerName}" becomes, for example, "Kelly." 
+    {
+      <tr>
+        <td>@Html.ActionLink($"{machine.MachineId}", "Details", new {id=machine.MachineId})</td> 
+        <td>@($"{machine.Description}")</td>
+        <td>@($"{machine.Value}")</td>
+        <td>engineers go here</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  }
