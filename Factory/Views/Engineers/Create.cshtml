@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer 
+
+<h4 class="under-navbar">Add an Engineer with the form below</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.EngineerName) 
+  @Html.TextBoxFor(model => model.EngineerName)
+
+
+  @Html.Label("Select Machine they are licensed to work on")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Add Engineer" class="btn btn-light" />
+}
