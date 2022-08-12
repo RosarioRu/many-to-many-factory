@@ -5,7 +5,7 @@
 @model Factory.Models.Machine
 
 
-<p class="under-navbar">@Model.MachineName's Details</p>
+<h4 class="under-navbar">@Model.MachineName's Details</h4>
 
 <p>@Html.DisplayNameFor(model => model.MachineId): @Html.DisplayFor(model => model.MachineId)</p>
 <p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
@@ -29,5 +29,11 @@ else
         @Html.Hidden("joinId", @join.EngineerMachineId)
         <input type ="submit" value="remove engineer"/>
       }<br>*@
+
+    
   </ul>
 }
+
+<p>@Html.ActionLink($"Make changes to this machine", "Edit", new {id=Model.MachineId})</p>
+
+
