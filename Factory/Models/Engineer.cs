@@ -13,6 +13,7 @@ namespace Factory.Models
       this.JoinEntities = new HashSet<EngineerMachine>();
     }
 
+    [Display(Name = "Engineer's ID")]
     public int EngineerId { get; set; }
 
     [Display(Name = "Full Name")]
