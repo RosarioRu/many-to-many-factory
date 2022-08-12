@@ -90,6 +90,15 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpPost] //just deletes the EngineerMachine join entity, not the Engineer or the Machine.
+    public ActionResult DeleteEngineer(int joinId)
+    {
+      var joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachines.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    } 
+
     
   }
 }
