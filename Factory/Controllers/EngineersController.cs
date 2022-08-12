@@ -28,6 +28,17 @@ namespace Factory.Controllers
       return View();
     }
 
-
+    [HttpPost]
+    public ActionResult Create(Engineer engineerToAdd, int MachineId)
+    {
+      _db.Engineers.Add(engineerToAdd);
+      _db.SaveChanges();
+      if (MachineId != 0)
+      {
+        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = MachineId, EngineerName = engineerToAdd.EngineerName});
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
   }
 }
