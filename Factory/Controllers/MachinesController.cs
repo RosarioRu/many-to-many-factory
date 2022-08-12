@@ -24,8 +24,21 @@ namespace Factory.Controllers
     [HttpGet]
     public ActionResult Create()
     {
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      ViewBag.EngineerName = new SelectList(_db.Engineers, "EngineerName", "EngineerName");
       return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Machine machineToAdd, string EngineerName)
+    {
+      _db.Machines.Add(machineToAdd);
+      _db.SaveChanges();
+      if (EngineerName != null)
+      {
+        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineToAdd.MachineId, EngineerName = EngineerName});
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
     }
 
     
