@@ -24,7 +24,7 @@ namespace Factory.Controllers
     [HttpGet]
     public ActionResult Create()
     {
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Description");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View();
     }
 
@@ -35,10 +35,20 @@ namespace Factory.Controllers
       _db.SaveChanges();
       if (MachineId != 0)
       {
-        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = MachineId, EngineerName = engineerToAdd.EngineerName});
+        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineerToAdd.EngineerId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public ActionResult Details(int id)
+    { 
+      var thisEngineer = _db.Engineers
+        .Include(engineer => engineer.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
     }
   }
 }

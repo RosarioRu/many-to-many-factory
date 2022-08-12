@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 @{
   Layout = "_Layout";
 } 
 
 @using Factory.Models;
 @model List<Factory.Models.Engineer>;
+
 
 <h1 class="under-navbar">Engineers</h1><br>
 
@@ -26,9 +28,10 @@
     {
       <tr>
         <td>@Html.ActionLink($"{engineer.EngineerName}", "Details", new {id=engineer.EngineerId})</td> 
-        <td>here go the machines</td>
+        <td></td>
       </tr>
     }
     </tbody>
-  </table>
+  </table><br><br>
+  <p>@Html.ActionLink("Add another Engineer", "Create")</p>
   }

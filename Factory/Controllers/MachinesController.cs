@@ -18,24 +18,27 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
+      
       return View(_db.Machines.ToList());
-    }
+      
+
+    } 
 
     [HttpGet]
     public ActionResult Create()
     {
-      ViewBag.EngineerName = new SelectList(_db.Engineers, "EngineerName", "EngineerName");
+      ViewBag.EngineerId= new SelectList(_db.Engineers, "EngineerId", "EngineerName");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Machine machineToAdd, string EngineerName)
+    public ActionResult Create(Machine machineToAdd, int EngineerId)
     {
       _db.Machines.Add(machineToAdd);
       _db.SaveChanges();
-      if (EngineerName != null)
+      if (EngineerId != 0)
       {
-        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineToAdd.MachineId, EngineerName = EngineerName});
+        _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machineToAdd.MachineId, EngineerId = EngineerId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");

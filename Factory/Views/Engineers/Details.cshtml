@@ -5,15 +5,11 @@
 @model Factory.Models.Engineer
 
 
-<h3>Engineer's Details</h3>
-
-<p>@Model.EngineerName</p>
-
-<p>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</p>
+<p class="under-navbar">@Model.EngineerName's Details</p>
 
 <p>@Html.DisplayNameFor(model => model.EngineerId): @Html.DisplayFor(model => model.EngineerId)</p>
 
-@* @if (@Model.JoinEntities.Count == 0)
+@if (@Model.JoinEntities.Count == 0)
 {
   <p>This Engineer has not been assigned to any Machines yet.</p>
 }
@@ -23,14 +19,16 @@ else
   <ul>
     @foreach (var join in Model.JoinEntities)
     {
-      <li>@join.Engineer.EngineerName</li>
+      <li>@join.Machine.MachineName</li>
     }
       @* @using (Html.BeginForm("DeleteEngineer", "Engineers"))
       {
         @Html.Hidden("joinId", @join.EngineerMachineId)
         <input type ="submit" value="remove engineer"/>
-      }<br> *@
+      }<br>*@
+  </ul>
+}
     
-  @* </ul> *@
+  
 
  
