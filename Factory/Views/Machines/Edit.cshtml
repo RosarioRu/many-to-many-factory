@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+
+<p class="under-navbar">Editing details for: @Model.MachineName</p>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.MachineId)
+
+    @Html.LabelFor(model => model.MachineName)
+    @Html.EditorFor(model => model.MachineName)
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    @Html.LabelFor(model => model.Value)
+    @Html.EditorFor(model => model.Value)
+
+    @Html.Label("Add another Engineer")
+    @Html.DropDownList("EngineerId")
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Never mind", "Index")</p>
