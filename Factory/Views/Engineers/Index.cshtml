@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+} 
+
+@using Factory.Models;
+@model List<Factory.Models.Engineer>;
+
+<h1 class="under-navbar">Engineers</h1><br>
+
+  @if (@Model.Count == 0)
+  {
+    <h3>No Engineers In The System Yet</h3><br>
+    <p>@Html.ActionLink("Add One", "Create")</p>
+  }
+  else 
+  {
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Engineer</th>
+        <th scope="col">Licenced to Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach(Engineer engineer in Model)//this foreach loop uses html helper method to link to a specific engineer's detail. Uses string interpolation - C# will evaluate an expression inside a string, so "{engineer.EngineerName}" becomes, for example, "Kelly." 
+    {
+      <tr>
+        <td>@Html.ActionLink($"{engineer.EngineerName}", "Details", new {id=engineer.EngineerId})</td> 
+        <td>here go the machines</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  }
